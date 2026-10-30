@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bad Seed Botanicals Pitch</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Interactive investor pitch for Bad Seed Botanicals, a San José hemp, CBD, and fiber startup.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Patrick+Hand&family=Permanent+Marker&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="progress"></div>
+<p id="rotate-hint">Turn your phone sideways for the full show</p>
+
+<div id="viewport">
+<main id="stage" aria-live="polite">
+
+<!-- ============ 1. COVER ============ -->
+<section class="slide cover active" data-title="Bad Seed Botanicals" aria-label="Slide 1: Bad Seed Botanicals">
+  <div class="smear" style="top:600px"></div>
+  <div class="deco" data-art="leaf" style="left:110px;top:80px;width:220px;height:220px;transform:rotate(-18deg)"></div>
+  <div class="deco" data-art="leaf" style="right:110px;top:80px;width:220px;height:220px;transform:rotate(16deg)"></div>
+  <p class="eyebrow c-purple" style="transform:rotate(-2deg);transform-origin:center">LD Micro Main Event · Investor Presentation</p>
+  <h1 class="title mega">Bad Seed<br>Botanicals!</h1>
+  <p class="tagline">The plant already had a reputation. We put it to work.</p>
+  <div class="cast">
+    <button class="character" data-quip="One pump, same dose, every single time. I’m the reliable one." aria-label="Spritz Happens, tap for a quote">
+      <div class="art" data-art="spritz"></div><span class="name c-red">Spritz Happens</span><span class="bubble"></span>
+    </button>
+    <button class="character" data-quip="I make your grandma’s table look loved again. Petroleum not invited." aria-label="Grain Damage, tap for a quote">
+      <div class="art" data-art="grain"></div><span class="name c-orange">Grain Damage</span><span class="bubble"></span>
+    </button>
+    <button class="character" data-quip="I’m very absorbent. Emotionally, not so much." aria-label="Dry Humor, tap for a quote">
+      <div class="art" data-art="towel"></div><span class="name c-teal">Dry Humor</span><span class="bubble"></span>
+    </button>
+    <button class="character" data-quip="Read my name. Now read it again. Slowly." aria-label="Do Not Operate Heavy Machinery, tap for a quote">
+      <div class="art" data-art="dnohm"></div><span class="name c-purple">Do Not Operate Heavy Machinery</span><span class="bubble"></span>
+    </button>
+  </div>
+  <p class="hint">Tap a product, then press → to start</p>
+  <p class="byline">Amanda Mallette, Research Scientist · San José, California</p>
+  <div class="notes" hidden>
+    <p class="cue">[Tap each product so they say hi, then go to the next slide.]</p>
+    <p>Hi everyone, I’m Amanda Mallette, research scientist at Bad Seed Botanicals out of San José, California. Cannabis spent most of the last century on the government’s naughty list, so when it came time to name the company I figured, why fight it. Over the next ten minutes I’ll cover what this plant actually is, what we make from it, how we make it, and why I think we’re a better place for your money than the other hemp companies in this room. Some of you know this industry better than I’d like. That’s fine. I brought receipts.</p>
+  </div>
+</section>
+
+<!-- ============ 2. SAME PLANT / THC TESTER ============ -->
+<section class="slide" data-title="Same plant, different job" aria-label="Slide 2: Same plant, different job">
+  <div class="deco" data-art="leaf" style="right:100px;top:70px;width:150px;height:150px;transform:rotate(18deg)"></div>
+  <div class="head">
+    <p class="eyebrow c-red">Cannabis 101</p>
+    <h2 class="title">Same plant, different job!</h2>
+  </div>
+  <div class="s2-grid">
+    <div class="s2-left">
+      <div class="panel tilt-l">
+        <h3 class="c-green">Industrial hemp</h3>
+        <ul>
+          <li><i>Cannabis sativa</i> L. at or under 0.3% THC, dry weight</li>
+          <li>Bred for stalk, seed, oil and CBD</li>
+          <li>Off the federal controlled substances list since the 2018 farm bill</li>
+        </ul>
+      </div>
+      <div class="panel tilt-r">
+        <h3 class="c-purple">Marijuana</h3>
+        <ul>
+          <li>Same species, above the 0.3% line</li>
+          <li>Bred for THC-rich resin in the female flowers</li>
+          <li>Schedule I federally, state-licensed in California</li>
+        </ul>
+      </div>
+    </div>
+    <div class="panel tester">
+      <h3>The 0.3% line tester</h3>
+      <p style="font-size:26px">Drag the sliders. From 11 Dec 2026 the law counts THCA too, using total THC = Δ9-THC + 0.877 × THCA.</p>
+      <div class="field">
+        <label for="d9">Δ9-THC (dry weight) <output id="d9v" for="d9">0.20%</output></label>
+        <input type="range" id="d9" min="0" max="1.5" step="0.01" value="0.2">
+      </div>
+      <div class="field">
+        <label for="thca">THCA (dry weight) <output id="thcav" for="thca">0.50%</output></label>
+        <input type="range" id="thca" min="0" max="25" step="0.05" value="0.5">
+      </div>
+      <p class="formula">Total THC: <b id="totv">0.64%</b></p>
+      <div class="verdicts">
+        <div class="verdict-col"><small>2018 farm bill (Δ9 only)</small><span class="stamp" id="oldStamp">Hemp</span></div>
+        <div class="verdict-col"><small>New rule (total THC)</small><span class="stamp" id="newStamp">Marijuana</span></div>
+      </div>
+      <div class="presets">
+        <button class="btn alt" data-d9="0.03" data-thca="0.08">Fiber hemp</button>
+        <button class="btn alt" data-d9="0.08" data-thca="0.2">CBD hemp</button>
+        <button class="btn alt" data-d9="0.25" data-thca="0.9">Sneaky “hot” hemp</button>
+        <button class="btn alt" data-d9="0.9" data-thca="22">Dispensary flower</button>
+      </div>
+    </div>
+  </div>
+  <p class="cite">Johnson (2018); Neuhofer (2026); Small (2015)</p>
+  <p class="pgnum">Bad Seed Botanicals · 2</p>
+  <div class="notes" hidden>
+    <p class="cue">[Hit “Sneaky hot hemp” while you talk about the new rule. Watch the stamp flip.]</p>
+    <p>Quick vocabulary lesson, because the internet still gets this wrong. Hemp and marijuana are the same species, Cannabis sativa L., bred for different jobs, the same way a draft horse and a Thoroughbred are both horses (Small, 2015). The legal line is THC. Hemp is cannabis with no more than 0.3% THC on a dry weight basis (Johnson, 2018), and starting 11 December 2026 that number counts total THC, including THCA, the acid form the plant actually makes (Neuhofer, 2026). See that sneaky hemp sample? Legal hemp under the old rule, marijuana under the new one. Anything above the line is marijuana. It’s still Schedule I federally, but California licenses it, which matters later.</p>
+  </div>
+</section>
+
+<!-- ============ 3. PRODUCTS / PLANT EXPLORER ============ -->
+<section class="slide" data-title="25,000+ products" aria-label="Slide 3: 25,000 plus products">
+  <div class="smear" style="top:420px;left:60px;width:640px;height:300px"></div>
+  <div class="s3-grid">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <p class="eyebrow c-orange">What one species can make</p>
+      <p class="big-count" id="count25">25,000+</p>
+      <p style="font-family:var(--font-marker);font-size:44px;line-height:1.15">products in nine markets!</p>
+      <div class="panel part-info" id="partInfo">
+        <h3 class="c-purple">Tap the plant</h3>
+        <p>Pick a part to see which markets it feeds. Hemp pays best when nothing goes to waste.</p>
+      </div>
+    </div>
+    <div class="plant-wrap" id="plant"></div>
+    <div class="markets" id="markets">
+      <div class="market" data-parts="seed stalk">Agriculture</div>
+      <div class="market" data-parts="stalk">Textiles</div>
+      <div class="market" data-parts="stalk">Recycling</div>
+      <div class="market" data-parts="stalk">Automotive</div>
+      <div class="market" data-parts="stalk">Furniture</div>
+      <div class="market" data-parts="seed">Food and beverage</div>
+      <div class="market" data-parts="stalk">Paper</div>
+      <div class="market" data-parts="stalk">Construction</div>
+      <div class="market" data-parts="seed flower">Personal care</div>
+    </div>
+  </div>
+  <p class="cite">Johnson (2018); Pal &amp; Lucia (2019)</p>
+  <p class="pgnum">Bad Seed Botanicals · 3</p>
+  <div class="notes" hidden>
+    <p class="cue">[The counter runs up on its own. Tap stalk, then seed, then flower as you name them.]</p>
+    <p>So why should investors care about a plant with an identity crisis? Because it’s ridiculously versatile. The Congressional Research Service counts more than 25,000 hemp products across nine market segments, from car door panels and paper to building materials, food, and skin care (Johnson, 2018). And it uses the whole plant. The stalk gives you fiber and the woody core called hurd. The seed gives you oil and protein. The flower gives you cannabinoids like CBD. Most companies pick one of those and leave the rest in the field, even though the research says hemp pays best when you use all of it (Pal &amp; Lucia, 2019). Hold that thought, I’m coming back to it.</p>
+  </div>
+</section>
+
+<!-- ============ 4. VARIETIES MATCHING GAME ============ -->
+<section class="slide" data-title="One species, bred four ways" aria-label="Slide 4: Varieties matching game">
+  <div class="deco" data-art="leaf" style="right:100px;top:70px;width:150px;height:150px;transform:rotate(-14deg)"></div>
+  <div class="head">
+    <p class="eyebrow c-green">Varieties · mini game</p>
+    <h2 class="title">One species, bred four ways</h2>
+  </div>
+  <div class="tray" id="tray">
+    <p>1. Pick a product</p>
+    <button class="pchip" data-prod="towel"><span class="art" data-art="towel"></span>Dry Humor</button>
+    <button class="pchip" data-prod="grain"><span class="art" data-art="grain"></span>Grain Damage</button>
+    <button class="pchip" data-prod="spritz"><span class="art" data-art="spritz"></span>Spritz Happens</button>
+    <button class="pchip" data-prod="dnohm"><span class="art" data-art="dnohm"></span>DNOHM</button>
+  </div>
+  <div class="var-grid">
+    <button class="var-card" data-want="towel" data-pick="Futura 75" data-name="Dry Humor">
+      <h3 class="c-teal">Fiber hemp</h3><span class="type-tag">tall · monoecious</span>
+      <p class="energy">Puts its energy into tall, thin stalks full of bast fiber.</p>
+      <span class="slot">2. Tap to place a product here</span>
+    </button>
+    <button class="var-card" data-want="grain" data-pick="Grain cultivar trialed near our latitude" data-name="Grain Damage">
+      <h3 class="c-orange">Grain hemp</h3><span class="type-tag">short · early</span>
+      <p class="energy">Heavy seed heads. Pollination is the whole point here.</p>
+      <span class="slot">2. Tap to place a product here</span>
+    </button>
+    <button class="var-card" data-want="spritz" data-pick="Clones of one tested mother" data-name="Spritz Happens">
+      <h3 class="c-red">CBD hemp</h3><span class="type-tag">chemotype III</span>
+      <p class="energy">Resin on unpollinated female flowers, CBD-dominant.</p>
+      <span class="slot">2. Tap to place a product here</span>
+    </button>
+    <button class="var-card" data-want="dnohm" data-pick="Pheno-hunted hybrid" data-name="Do Not Operate Heavy Machinery">
+      <h3 class="c-purple">Drug-type cannabis</h3><span class="type-tag">chemotype I</span>
+      <p class="energy">Resin on unpollinated female flowers, THC-dominant.</p>
+      <span class="slot">2. Tap to place a product here</span>
+    </button>
+  </div>
+  <div class="game-bar">
+    <span class="score" id="score">0 / 4</span>
+    <span class="game-msg" id="gameMsg">Match each product to the plant built for it.</span>
+    <span style="flex:1"></span>
+    <button class="btn alt" id="revealAll">Show answers</button>
+    <button class="btn alt" id="resetGame">Reset</button>
+  </div>
+  <p class="cite">Andre et al. (2016); Salentijn et al. (2015); Small (2015)</p>
+  <p class="pgnum">Bad Seed Botanicals · 4</p>
+  <div class="notes" hidden>
+    <p class="cue">[Play the match while you talk, or hit “Show answers” to save time.]</p>
+    <p>Here’s the part that matters most for the science. A variety bred for fiber is a terrible place to look for CBD, and the reverse is just as true. Fiber hemp like Futura 75 is tall and skinny and puts its energy into the stalk (Salentijn et al., 2015). Grain hemp is short, early, and loaded with seed, so pollination is actually the goal there. CBD hemp and THC-dominant cannabis both grow for resin, which is made in glandular trichomes on the unpollinated female flowers (Andre et al., 2016). Whether a plant leans CBD or THC, its chemotype, comes down to genetics (Small, 2015). So every product gets a plant built for it, instead of one crop doing four jobs badly.</p>
+  </div>
+</section>
+
+<!-- ============ 5. PRODUCT LINE FLIP CARDS ============ -->
+<section class="slide" data-title="Meet the product line" aria-label="Slide 5: Meet the product line">
+  <div class="smear" style="top:330px"></div>
+  <div class="head">
+    <p class="eyebrow c-red">What we make · tap a card to flip it</p>
+    <h2 class="title">Meet the product line</h2>
+  </div>
+  <div class="flip-row">
+    <button class="flip tilt-l" aria-label="Spritz Happens card, tap to flip">
+      <span class="flip-inner">
+        <span class="flip-face">
+          <span class="art" data-art="spritz"></span>
+          <span class="tag" style="background:var(--red-ink)">CBD</span>
+          <h3 class="c-red">Spritz Happens</h3>
+          <p>Broad-spectrum CBD mouth spray. Same dose every pump, THC removed.</p>
+          <span class="tap">tap to flip ↻</span>
+        </span>
+        <span class="flip-face flip-back">
+          <h3 class="c-red">How it’s made</h3>
+          <ul><li>CBD-dominant flower from tested clones</li><li>Supercritical CO₂ extraction</li><li>THC taken to non-detect</li><li>MCT oil plus the plant’s terpenes, metered pump</li></ul>
+          <p style="margin-top:auto;font-family:var(--font-marker);font-size:24px">Why a spray? It absorbs through the mouth and nobody guesses their dose.</p>
+        </span>
+      </span>
+    </button>
+    <button class="flip tilt-r" aria-label="Grain Damage card, tap to flip">
+      <span class="flip-inner">
+        <span class="flip-face">
+          <span class="art" data-art="grain"></span>
+          <span class="tag" style="background:var(--orange-ink)">Hemp seed oil</span>
+          <h3 class="c-orange">Grain Damage</h3>
+          <p>Cold-pressed hemp seed oil wood finish. Cures inside the grain, no petroleum solvents.</p>
+          <span class="tap">tap to flip ↻</span>
+        </span>
+        <span class="flip-face flip-back">
+          <h3 class="c-orange">How it’s made</h3>
+          <ul><li>Grain hemp, combine harvested</li><li>Seed dried fast, cold-pressed</li><li>About 80% polyunsaturated fat</li><li>Oxygen cross-links it into a film</li></ul>
+          <p style="margin-top:auto;font-family:var(--font-marker);font-size:24px">Hemp seed oil deserves a better career than salad dressing.</p>
+        </span>
+      </span>
+    </button>
+    <button class="flip tilt-l" aria-label="Dry Humor card, tap to flip">
+      <span class="flip-inner">
+        <span class="flip-face">
+          <span class="art" data-art="towel"></span>
+          <span class="tag" style="background:var(--teal-ink)">Fiber</span>
+          <h3 class="c-teal">Dry Humor</h3>
+          <p>Hemp-cotton bath towels. Hemp for strength and absorbency, cotton for softness.</p>
+          <span class="tap">tap to flip ↻</span>
+        </span>
+        <span class="flip-face flip-back">
+          <h3 class="c-teal">How it’s made</h3>
+          <ul><li>Fiber hemp cut at early flowering</li><li>Decorticated on the farm</li><li>Bast cottonized, blended with cotton</li><li>Terry woven at a partner mill</li></ul>
+          <p style="margin-top:auto;font-family:var(--font-marker);font-size:24px">Named after my entire personality.</p>
+        </span>
+      </span>
+    </button>
+    <button class="flip tilt-r" aria-label="Do Not Operate Heavy Machinery card, tap to flip">
+      <span class="flip-inner">
+        <span class="flip-face">
+          <span class="art" data-art="dnohm"></span>
+          <span class="tag" style="background:var(--purple-ink)">Recreational · 21+</span>
+          <h3 class="c-purple" style="font-size:32px">Do Not Operate Heavy Machinery</h3>
+          <p>High-potency hybrid THCA diamonds and sauce. Licensed retail only.</p>
+          <span class="tap">tap to flip ↻</span>
+        </span>
+        <span class="flip-face flip-back">
+          <h3 class="c-purple">How it’s made</h3>
+          <ul><li>Fresh-frozen indoor flower</li><li>Closed-loop hydrocarbon extraction</li><li>THCA crystallizes into diamonds</li><li>Terpene-rich sauce holds them</li></ul>
+          <p style="margin-top:auto;font-family:var(--font-marker);font-size:24px">The name is less branding and more a legal requirement.</p>
+        </span>
+      </span>
+    </button>
+  </div>
+  <p class="pgnum">Bad Seed Botanicals · 5</p>
+  <div class="notes" hidden>
+    <p class="cue">[Flip each card as you introduce it.]</p>
+    <p>Which brings me to the product line. Spritz Happens is our broad-spectrum CBD mouth spray. You get CBD plus the plant’s other compounds with the THC taken out, and every pump is the same dose. Grain Damage is a hemp seed oil wood finish, because hemp seed oil deserves a better career than salad dressing. Dry Humor is a line of hemp-cotton bath towels, named after my entire personality. And Do Not Operate Heavy Machinery is a high-potency hybrid THCA diamonds and sauce concentrate, for experienced adults only. The name is less branding and more of a legal requirement.</p>
+  </div>
+</section>
+
+<!-- ============ 6. GROW THE SEASON GAME ============ -->
+<section class="slide" data-title="Grow the season" aria-label="Slide 6: Grow the season game">
+  <div class="deco" data-art="sun" style="right:100px;top:56px;width:170px;height:170px"></div>
+  <div class="head">
+    <p class="eyebrow c-green">How we grow · you’re the farmer</p>
+    <h2 class="title">Grow the season</h2>
+  </div>
+  <div class="grow-grid">
+    <div class="gcard" data-crop="fiber">
+      <div class="ghead"><span class="art" data-art="towel"></span><div><h3 class="c-teal">Dry Humor</h3><span class="acres">150 acres · Gilroy farm</span></div></div>
+      <div class="gplot field"><div class="gplant"></div><span class="gstamp"></span></div>
+      <div class="gq"><span>Seed spacing</span><div class="seg" data-q="a"><button data-v="ok">Packed in thick</button><button data-v="no">Spread out</button></div></div>
+      <div class="gq"><span>Cut it at</span><div class="seg" data-q="b"><button data-v="no">Seed set</button><button data-v="ok">Early flowering</button></div></div>
+      <p class="gresult">Make both calls, then hit Grow.</p>
+    </div>
+    <div class="gcard" data-crop="grain">
+      <div class="ghead"><span class="art" data-art="grain"></span><div><h3 class="c-orange">Grain Damage</h3><span class="acres">75 acres · Gilroy farm</span></div></div>
+      <div class="gplot field"><div class="gplant"></div><span class="gstamp"></span></div>
+      <div class="gq"><span>Male plants &amp; pollen</span><div class="seg" data-q="a"><button data-v="no">Banned</button><button data-v="ok">Welcome</button></div></div>
+      <div class="gq"><span>Harvest when</span><div class="seg" data-q="b"><button data-v="ok">Seed is mature</button><button data-v="no">Plants look pretty</button></div></div>
+      <p class="gresult">Make both calls, then hit Grow.</p>
+    </div>
+    <div class="gcard" data-crop="cbd">
+      <div class="ghead"><span class="art" data-art="spritz"></span><div><h3 class="c-red">Spritz Happens</h3><span class="acres">2 acres · greenhouse</span></div></div>
+      <div class="gplot house"><div class="gplant"></div><span class="gstamp"></span></div>
+      <div class="gq"><span>Start from</span><div class="seg" data-q="a"><button data-v="no">Random seed</button><button data-v="ok">Tested clones</button></div></div>
+      <div class="gq"><span>Male plants &amp; pollen</span><div class="seg" data-q="b"><button data-v="ok">Banned</button><button data-v="no">Welcome</button></div></div>
+      <p class="gresult">Make both calls, then hit Grow.</p>
+    </div>
+    <div class="gcard" data-crop="rec">
+      <div class="ghead"><span class="art" data-art="dnohm"></span><div><h3 class="c-purple">DNOHM</h3><span class="acres">Indoors · San José</span></div></div>
+      <div class="gplot indoor"><div class="gplant"></div><span class="gstamp"></span></div>
+      <div class="gq"><span>Grow it</span><div class="seg" data-q="a"><button data-v="no">On the hemp farm</button><button data-v="ok">Indoors, licensed</button></div></div>
+      <div class="gq"><span>At harvest</span><div class="seg" data-q="b"><button data-v="ok">Freeze it fresh</button><button data-v="no">Hang-dry 2 weeks</button></div></div>
+      <p class="gresult">Make both calls, then hit Grow.</p>
+    </div>
+  </div>
+  <div class="grow-bar">
+    <button class="btn green" id="growBtn">Grow the season!</button>
+    <button class="btn alt" id="growAnswers">Show me the right way</button>
+    <button class="btn alt" id="growReset">Replant</button>
+    <span class="score" id="growScore">0 / 4 crops nailed</span>
+    <span style="flex:1"></span>
+    <span class="acre-badge">227 / 250 acres <small>under the county cap</small></span>
+  </div>
+  <p class="cite">Amaducci et al. (2015); Andre et al. (2016); County of Santa Clara Division of Agriculture (n.d.)</p>
+  <p class="pgnum">Bad Seed Botanicals · 6</p>
+  <div class="notes" hidden>
+    <p class="cue">[Ask the room to call each choice, or pick a couple wrong on purpose for the laughs, hit Grow, then “Show me the right way.”]</p>
+    <p>Four products means four completely different ways to grow, and getting one wrong ruins the crop. Dry Humor gets 150 acres on our leased farm near Gilroy, seeded thick so the plants crowd each other and grow tall instead of bushy, and cut at early flowering (Amaducci et al., 2015). Grain Damage gets 75 acres, and here pollen is the whole point, because pollinated flowers turn into seed. Spritz Happens is the opposite. It gets two acres in a light-deprivation greenhouse, grown only from clones of one tested mother, and male plants are banned, because a pollinated flower stops making resin and starts making seeds (Andre et al., 2016). That’s 227 acres, under the county’s 250-acre cap (County of Santa Clara Division of Agriculture, n.d.). And the recreational crop grows indoors in licensed space in San José, frozen fresh at harvest so the terpenes survive. Same species, four rulebooks.</p>
+  </div>
+</section>
+
+<!-- ============ 7. EXTRACTION LAB ============ -->
+<section class="slide" data-title="Making Spritz Happens" aria-label="Slide 7: Spritz Happens extraction lab">
+  <div class="deco" data-art="spritz" style="right:100px;top:52px;width:150px;height:170px;transform:rotate(8deg)"></div>
+  <div class="head">
+    <p class="eyebrow c-red">CBD extraction · run the lab</p>
+    <h2 class="title">Making Spritz Happens</h2>
+  </div>
+  <div class="chips" id="labChips"></div>
+  <div class="bench panel">
+    <div class="bench-art" id="labArt"></div>
+    <div class="bench-ctl" id="labCtl"></div>
+  </div>
+  <p class="cite">Andre et al. (2016); Pal &amp; Lucia (2019)</p>
+  <p class="pgnum">Bad Seed Botanicals · 7</p>
+  <div class="notes" hidden>
+    <p class="cue">[Work through all six stations live. “Skip station” moves on if you’re short on time.]</p>
+    <p>Here’s how a flower turns into Spritz Happens. Station one, we harvest only the flowers, because that’s where the trichomes are. And the plant doesn’t actually make CBD. It makes CBDA, using an enzyme called CBDA synthase inside those trichomes (Andre et al., 2016). Station two, supercritical CO2 extraction. CO2 goes supercritical above 31 degrees Celsius and 74 bar, and of the three common methods it’s rated the safest and highest-yielding (Pal &amp; Lucia, 2019). The catch is that waxes and fats come along for the ride, so station three, we winterize: chill it and filter the wax out. Station four, gentle heat knocks a carboxyl group off as CO2 and turns CBDA into CBD. Too hot and you cook off the terpenes. Station five, we distill and pull the THC down to non-detect. And station six, it goes into MCT oil with the plant’s own terpenes in a metered spray. A mouth spray absorbs faster than a gummy, and nobody has to guess their dose.</p>
+  </div>
+</section>
+
+<!-- ============ 8. GRAIN DAMAGE COATS ============ -->
+<section class="slide" data-title="Making Grain Damage" aria-label="Slide 8: Making Grain Damage">
+  <div class="deco" data-art="grain" style="right:96px;top:52px;width:180px;height:190px;transform:rotate(-6deg)"></div>
+  <div class="head">
+    <p class="eyebrow c-orange">Hemp seed oil · refinish the table</p>
+    <h2 class="title">Making Grain Damage</h2>
+  </div>
+  <div class="s8x">
+    <div class="s8-side">
+      <div class="mini-stat" style="background:var(--orange)"><b>~30%</b><span>of the seed is oil</span></div>
+      <div class="mini-stat" style="background:var(--yellow)"><b>~80%</b><span>of that oil is polyunsaturated</span></div>
+      <div class="mini-stat" style="background:var(--green)"><b>3 : 1</b><span>linoleic to alpha-linolenic</span></div>
+      <div class="panel quiz">
+        <h3 class="c-red">Pop quiz</h3>
+        <p>Is hemp seed oil the same thing as CBD oil?</p>
+        <div class="quiz-row"><button class="btn green" data-quiz="yes">Yes</button><button class="btn red" data-quiz="no">No</button></div>
+        <p class="quiz-out" id="quizOut"></p>
+      </div>
+    </div>
+    <div class="panel s8-main">
+      <div class="coat-steps" id="coatSteps">
+        <span class="cstep">Bare wood</span><span class="cstep">Coat 1 · soak</span><span class="cstep">Coat 2 · oxidize</span><span class="cstep">Coat 3 · cure</span>
+      </div>
+      <div class="wood" id="wood"></div>
+      <div class="coat-row">
+        <button class="btn" id="coatBtn">Wipe on coat 1</button>
+        <button class="btn teal" id="waterBtn">Water test</button>
+        <button class="btn alt" id="sandBtn">Sand it back</button>
+      </div>
+      <p class="coat-msg" id="coatMsg"></p>
+    </div>
+    <div class="s8-scope">
+      <div class="scope" id="scope"></div>
+      <div class="panel scope-cap" id="scopeCap"></div>
+    </div>
+  </div>
+  <p class="cite">Callaway (2004)</p>
+  <p class="pgnum">Bad Seed Botanicals · 8</p>
+  <div class="notes" hidden>
+    <p class="cue">[Do the water test first so it soaks in, then three coats, then the water test again so it beads up. Watch the microscope change each coat.]</p>
+    <p>Grain Damage is where hemp seed oil finally gets a real job. Hemp seed is about 30% oil, and roughly 80% of that is polyunsaturated fat, mostly linoleic and alpha-linolenic acid at about a three to one ratio (Callaway, 2004). Watch the microscope. Bare wood is a bunch of open, thirsty cells, so water soaks right in. Coat one, the oil wicks into those cells, and every one of those long fatty acid chains is carrying carbon double bonds. Coat two, oxygen from the air attacks those double bonds and the chains start grabbing onto each other. Coat three, they’re cross-linked into a tough network inside the grain, and now water beads up and rolls off. It’s the same chemistry that makes the bottle in your pantry go rancid, just pointed in a useful direction. And pop quiz: no, this oil is not CBD oil. Seeds carry trace cannabinoids at best.</p>
+  </div>
+</section>
+
+<!-- ============ 9. STALK TO TOWEL FACTORY ============ -->
+<section class="slide" data-title="Making Dry Humor" aria-label="Slide 9: Dry Humor stalk to towel factory">
+  <div class="deco" data-art="towel" style="right:92px;top:56px;width:200px;height:190px;transform:rotate(6deg)"></div>
+  <div class="head">
+    <p class="eyebrow c-teal">Fiber and textiles · run the mill</p>
+    <h2 class="title">Making Dry Humor</h2>
+  </div>
+  <div class="chips" id="millChips"></div>
+  <div class="bench panel">
+    <div class="bench-art" id="millArt"></div>
+    <div class="bench-ctl" id="millCtl"></div>
+  </div>
+  <p class="cite">Amaducci et al. (2015); Pal &amp; Lucia (2019); Salentijn et al. (2015)</p>
+  <p class="pgnum">Bad Seed Botanicals · 9</p>
+  <div class="notes" hidden>
+    <p class="cue">[Pick the wrong harvest time once for the joke, then early flowering. Crank, sort a few pieces, blend, weave.]</p>
+    <p>Dry Humor starts in the field, and timing matters a lot. We cut at early flowering, when yield and quality balance out best (Amaducci et al., 2015). Wait longer and the plant builds secondary bast fiber, which is shorter and coarser (Salentijn et al., 2015), and now your towel exfoliates you without asking. Gilroy summers are too dry for traditional dew retting, so we decorticate mechanically right on the farm. That cracks the stalk into two things. The long outer bast fiber is the textile part. The woody inner core is hurd. Modern decortication gets roughly three tons of bast and seven tons of hurd per hectare (Pal &amp; Lucia, 2019). The bast gets cottonized and blended with cotton, because hemp brings the strength and absorbency and cotton brings the softness. Then a partner mill weaves the terry. The hurd becomes animal bedding, which, as an animal science major, I’m contractually obligated to mention.</p>
+  </div>
+</section>
+
+<!-- ============ 10. REGULATIONS DECK ============ -->
+<section class="slide" data-title="The rules where we grow" aria-label="Slide 10: Regulations">
+  <div class="deco" data-art="leaf" style="right:100px;top:66px;width:150px;height:150px;transform:rotate(20deg)"></div>
+  <div class="head">
+    <p class="eyebrow c-blue">Regulations · tap the top card</p>
+    <h2 class="title">The rules where we grow</h2>
+  </div>
+  <div class="s10x">
+    <div class="deck" id="ruleDeck">
+      <button class="rcard" data-k="fed" style="--band:#3BB3C4">
+        <span class="rband"><span class="rlvl">Level 1 of 4</span><span class="rname">Federal</span></span>
+        <span class="rbody"><span class="rlabel">The rule</span><span class="rtext">From 11 Dec 2026, hemp means ≤0.3% total THC, THCA included. Finished hemp cannabinoid products cap at 0.4 mg THC per container. The FDA still regulates CBD.</span>
+        <span class="rlabel">What it means for us</span><span class="rtext">Every CBD lot gets THC tested, and Spritz Happens goes to non-detect THC.</span></span>
+        <span class="rtap">tap to send to the back ↻</span>
+      </button>
+      <button class="rcard" data-k="ca" style="--band:#F29A38">
+        <span class="rband"><span class="rlvl">Level 2 of 4</span><span class="rname">California</span></span>
+        <span class="rbody"><span class="rlabel">The rule</span><span class="rtext">AB 8: anything with intoxicating cannabinoids, hemp-derived or not, sells only through licensed cannabis retail.</span>
+        <span class="rlabel">What it means for us</span><span class="rtext">Our recreational product already lives there, so Spritz Happens can too.</span></span>
+        <span class="rtap">tap to send to the back ↻</span>
+      </button>
+      <button class="rcard" data-k="cty" style="--band:#6CC070">
+        <span class="rband"><span class="rlvl">Level 3 of 4</span><span class="rname">Santa Clara County</span></span>
+        <span class="rbody"><span class="rlabel">The rule</span><span class="rtext">A single hemp operation is capped at 250 acres.</span>
+        <span class="rlabel">What it means for us</span><span class="rtext">We plant 227 acres across Dry Humor, Grain Damage, and the Spritz Happens greenhouse.</span></span>
+        <span class="rtap">tap to send to the back ↻</span>
+      </button>
+      <button class="rcard" data-k="sj" style="--band:#B57BE8">
+        <span class="rband"><span class="rlvl">Level 4 of 4</span><span class="rname">San José</span></span>
+        <span class="rbody"><span class="rlabel">The rule</span><span class="rtext">The city isn’t taking new cannabis cultivation registrations.</span>
+        <span class="rlabel">What it means for us</span><span class="rtext">We partner with, or buy, an operator that already has one.</span></span>
+        <span class="rtap">tap to send to the back ↻</span>
+      </button>
+    </div>
+    <div class="s10-side">
+      <div class="panel">
+        <h3>Jump to a level</h3>
+        <div class="rtabs" id="ruleTabs">
+          <button data-k="fed">Federal</button>
+          <button data-k="ca">California</button>
+          <button data-k="cty">Santa Clara County</button>
+          <button data-k="sj">San José</button>
+        </div>
+        <p class="nest-note">Each level sits inside the one above it. We have to clear all four.</p>
+      </div>
+      <div class="panel countdown tilt-l">
+        <span class="days" id="days">--</span>
+        <p>days until the total-THC hemp definition takes effect on 11 Dec 2026</p>
+      </div>
+    </div>
+  </div>
+  <p class="cite">Cannabis: Cannabinoids: Industrial Hemp (2025); City of San José Division of Cannabis Regulation (n.d.); County of Santa Clara Division of Agriculture (n.d.); Mead (2019); Neuhofer (2026)</p>
+  <p class="pgnum">Bad Seed Botanicals · 10</p>
+  <div class="notes" hidden>
+    <p class="cue">[Tap the top card to toss it to the back as you go from federal down to city.]</p>
+    <p>Now the rules, because in this industry, where you are is half the business plan. Federally, the new hemp definition kicks in on 11 December. It counts total THC including THCA, and it caps finished hemp cannabinoid products at 0.4 milligrams of THC per container (Neuhofer, 2026). The FDA also still gets a say in how CBD is sold (Mead, 2019). In California, AB 8 sends anything with intoxicating cannabinoids through licensed cannabis retail, hemp-derived or not (Cannabis: Cannabinoids: Industrial Hemp, 2025). That’s a headache for a lot of hemp brands. For us it’s convenient, since our recreational product was already headed there. Locally, the county caps hemp at 250 acres (County of Santa Clara Division of Agriculture, n.d.), and San José isn’t taking new cultivation registrations (City of San José Division of Cannabis Regulation, n.d.), so we partner with or buy an operator that already has one.</p>
+  </div>
+</section>
+
+<!-- ============ 11. NOTHING WASTED FLOW ============ -->
+<section class="slide" data-title="Nothing gets wasted" aria-label="Slide 11: Nothing gets wasted">
+  <div class="head">
+    <p class="eyebrow c-purple">Value and R&amp;D · tap any stop</p>
+    <h2 class="title">Nothing gets wasted</h2>
+  </div>
+  <div class="s11x">
+    <div class="flow-wrap">
+      <div class="flow" id="flow"></div>
+      <button class="btn green flow-play" id="flowPlay">Run the plant</button>
+    </div>
+    <div class="s11-side">
+      <div class="panel flow-cap" id="flowCap"></div>
+      <div class="panel">
+        <h3 class="c-purple" style="font-size:32px">Also in the lab</h3>
+        <ul class="lab-list">
+          <li>CBG-forward spray, a Spritz Happens sibling</li>
+          <li>Faster-curing Grain Damage for impatient woodworkers</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <p class="pgnum">Bad Seed Botanicals · 11</p>
+  <div class="notes" hidden>
+    <p class="cue">[Hit “Run the plant,” then tap the hurd, seed cake, and bedding stops as you talk.]</p>
+    <p>So what do customers actually get? Every product comes from a plant bred for that job, and we control it from seed to shelf. Someone buying Spritz Happens knows what’s in the bottle because we grew it, extracted it, and tested it ourselves. And here’s the part I like best. Look at what most companies throw away. When we decorticate the stalk for Dry Humor, the woody hurd that’s left over becomes absorbent bedding for horses and poultry. When we press the seed for Grain Damage, the leftover seed cake is high in protein, so it’s headed for livestock feed once the feed approvals catch up. And the used bedding composts right back into the field we grow in. The lab isn’t done either: a CBG-forward spray and a faster-curing Grain Damage are next. Being the animal science person, I’ll admit the bedding is my favorite.</p>
+  </div>
+</section>
+
+<!-- ============ 12. MARKET ============ -->
+<section class="slide" data-title="Where the hemp money is" aria-label="Slide 12: The market">
+  <div class="deco" data-art="bag" style="right:100px;top:52px;width:170px;height:187px;transform:rotate(-8deg)"></div>
+  <div class="head">
+    <p class="eyebrow c-green">The market</p>
+    <h2 class="title">Where the hemp money is</h2>
+  </div>
+  <div class="stats3">
+    <div class="panel tilt-l" style="background:var(--yellow)"><p class="n" id="money">$0M</p><p>U.S. hemp production value in 2025, up 64% from 2024</p></div>
+    <div class="panel tilt-r" style="background:#F7A989"><p class="n">Floral</p><p>drives most of that value, and it’s the segment the December rule change hits hardest</p></div>
+    <div class="panel tilt-l" style="background:#9ED8E0"><p class="n">Fiber</p><p>acreage grew while raw fiber value fell. Bales are a commodity. Finished towels aren’t.</p></div>
+  </div>
+  <div class="panel lane-bubble" style="border-radius:60px;padding:24px 44px">Most hemp companies run one lane: a CBD brand, a seed food brand, or a fiber processor. That’s one revenue stream and one regulatory risk.</div>
+  <p class="cite">Neuhofer (2026); U.S. Department of Agriculture, National Agricultural Statistics Service (2026)</p>
+  <p class="pgnum">Bad Seed Botanicals · 12</p>
+  <div class="notes" hidden>
+    <p>Here’s the market. U.S. hemp production was worth 739 million dollars in 2025, up 64% from the year before (U.S. Department of Agriculture, National Agricultural Statistics Service, 2026). Most of that value is floral hemp, which is exactly the part of the market the new federal definition goes after in December (Neuhofer, 2026). Fiber went the other way. Acreage grew, but the value of raw fiber dropped, because a bale of stalks is a commodity and anyone with a field can grow one. A finished towel is a different story. Most companies in this space run one lane, a CBD brand or a seed food brand or a fiber processor. That’s one revenue stream and one regulatory risk, and a lot of them are about to find out what that feels like.</p>
+  </div>
+</section>
+
+<!-- ============ 13. WHY INVEST ============ -->
+<section class="slide" data-title="Problems we already solved" aria-label="Slide 13: Why invest">
+  <div class="deco" data-art="seedy" style="right:90px;top:46px;width:180px;height:200px"></div>
+  <div class="head">
+    <p class="eyebrow c-red">Why invest</p>
+    <h2 class="title">Problems we already solved</h2>
+  </div>
+  <div class="s13-grid">
+    <div class="fixes">
+      <button class="fix"><b>THC creeping up in the CBD crop</b><span class="q">tap for our fix</span><span class="ans">Clones of one tested mother, pre-harvest testing, early cut if needed.</span></button>
+      <button class="fix"><b>Too dry in Gilroy for dew retting</b><span class="q">tap for our fix</span><span class="ans">Mechanical decortication right on the farm.</span></button>
+      <button class="fix"><b>Seed oil going rancid</b><span class="q">tap for our fix</span><span class="ans">Fast drying, cold press, low-oxygen packaging.</span></button>
+      <button class="fix"><b>Tighter federal and state CBD rules</b><span class="q">tap for our fix</span><span class="ans">THC to non-detect, plus a licensed retail channel we already need.</span></button>
+    </div>
+    <div class="panel sim">
+      <h3>Crash a market</h3>
+      <p class="sim-sub">Tap a crash. Who’s still standing?</p>
+      <div class="toggles" id="crash">
+        <button class="toggle" aria-pressed="false" data-lane="0">⚡ CBD prices tank</button>
+        <button class="toggle" aria-pressed="false" data-lane="1">⚡ Fiber glut</button>
+        <button class="toggle" aria-pressed="false" data-lane="2">⚡ Seed oil slump</button>
+        <button class="toggle" aria-pressed="false" data-lane="3">⚡ Rec price war</button>
+      </div>
+      <div class="stools" id="stools"></div>
+      <p class="sim-msg" id="simMsg">Two companies, two stools. One leg per product line.</p>
+      <small>Illustration only, not a forecast.</small>
+    </div>
+  </div>
+  <div class="panel closer tilt-l">Four products from one species, nothing wasted. When one market dips, the other three keep paying.</div>
+  <p class="pgnum">Bad Seed Botanicals · 13</p>
+  <div class="notes" hidden>
+    <p class="cue">[Open each fix as you name it. Then crash the CBD market and watch the one-legged stool go down. Crash one more for Bad Seed and it still stands.]</p>
+    <p>Every hemp company has problems. Here’s how we handled ours. THC drift in the CBD crop gets tested clones and pre-harvest testing, with an early cut if the numbers start climbing. The dry Gilroy summer that rules out dew retting gets on-farm decortication. Seed oil’s habit of going rancid gets fast drying and low-oxygen packaging. And the regulatory squeeze gets THC taken to non-detect, plus a licensed retail channel we were going to need anyway. Our strategy is simple. Four products from one species, two regulatory lanes, and nothing left in the field. When one market dips, the other three keep paying. Cannabis has been misunderstood for a long time, and we just think it’s time it got put to work properly. Thank you, and I’m happy to take questions.</p>
+  </div>
+</section>
+
+<!-- ============ 14. REFERENCES ============ -->
+<section class="slide refs" data-title="References" aria-label="Slide 14: References">
+  <div class="head"><h2 class="title" style="font-size:64px">References</h2></div>
+  <p>Amaducci, S., Scordia, D., Liu, F. H., Zhang, Q., Guo, H., Testa, G., &amp; Cosentino, S. L. (2015). Key cultivation techniques for hemp in Europe and China. <i>Industrial Crops and Products, 68</i>, 2–16. <a href="https://doi.org/10.1016/j.indcrop.2014.06.041" target="_blank" rel="noopener">https://doi.org/10.1016/j.indcrop.2014.06.041</a></p>
+  <p>Andre, C. M., Hausman, J.-F., &amp; Guerriero, G. (2016). <i>Cannabis sativa</i>: The plant of the thousand and one molecules. <i>Frontiers in Plant Science, 7</i>, Article 19. <a href="https://doi.org/10.3389/fpls.2016.00019" target="_blank" rel="noopener">https://doi.org/10.3389/fpls.2016.00019</a></p>
+  <p>Callaway, J. C. (2004). Hempseed as a nutritional resource: An overview. <i>Euphytica, 140</i>(1–2), 65–72. <a href="https://doi.org/10.1007/s10681-004-4811-6" target="_blank" rel="noopener">https://doi.org/10.1007/s10681-004-4811-6</a></p>
+  <p>Cannabis: Cannabinoids: Industrial Hemp, A.B. 8, 2025–2026 Reg. Sess., ch. 248 (Cal. 2025). <a href="https://legiscan.com/CA/text/AB8/2025" target="_blank" rel="noopener">https://legiscan.com/CA/text/AB8/2025</a></p>
+  <p>City of San José Division of Cannabis Regulation. (n.d.). <i>Frequently asked questions</i>. San José Police Department. Retrieved October 15, 2026, from <a href="https://www.sjpd.org/about-us/organization/chief-executive-officer/cannabis-regulation/frequently-asked-questions" target="_blank" rel="noopener">https://www.sjpd.org/about-us/organization/chief-executive-officer/cannabis-regulation/frequently-asked-questions</a></p>
+  <p>County of Santa Clara Division of Agriculture. (n.d.). <i>Industrial hemp in Santa Clara County</i>. Retrieved October 15, 2026, from <a href="https://ag.santaclaracounty.gov/pesticides/industrial-hemp-santa-clara-county" target="_blank" rel="noopener">https://ag.santaclaracounty.gov/pesticides/industrial-hemp-santa-clara-county</a></p>
+  <p>Johnson, R. (2018). <i>Hemp as an agricultural commodity</i> (CRS Report No. RL32725). Congressional Research Service. <a href="https://crsreports.congress.gov/product/pdf/RL/RL32725" target="_blank" rel="noopener">https://crsreports.congress.gov/product/pdf/RL/RL32725</a></p>
+  <p class="pgnum">Bad Seed Botanicals · 14</p>
+  <div class="notes" hidden><p>References, page one.</p></div>
+</section>
+
+<!-- ============ 15. REFERENCES CONTINUED ============ -->
+<section class="slide refs" data-title="References, continued" aria-label="Slide 15: References continued">
+  <div class="head"><h2 class="title" style="font-size:64px">References, continued</h2></div>
+  <p>Mead, A. (2019). Legal and regulatory issues governing cannabis and cannabis-derived products in the United States. <i>Frontiers in Plant Science, 10</i>, Article 697. <a href="https://doi.org/10.3389/fpls.2019.00697" target="_blank" rel="noopener">https://doi.org/10.3389/fpls.2019.00697</a></p>
+  <p>Neuhofer, Z. T. (2026). <i>Changes to the statutory definition of hemp and implications for agricultural policy</i> (CRS In Focus No. IF13136). Congressional Research Service. <a href="https://crsreports.congress.gov/product/pdf/IF/IF13136" target="_blank" rel="noopener">https://crsreports.congress.gov/product/pdf/IF/IF13136</a></p>
+  <p>Pal, L., &amp; Lucia, L. A. (2019). Renaissance of industrial hemp: A miracle crop for a multitude of products. <i>BioResources, 14</i>(2), 2460–2464.</p>
+  <p>Salentijn, E. M. J., Zhang, Q., Amaducci, S., Yang, M., &amp; Trindade, L. M. (2015). New developments in fiber hemp (<i>Cannabis sativa</i> L.) breeding. <i>Industrial Crops and Products, 68</i>, 32–41. <a href="https://doi.org/10.1016/j.indcrop.2014.08.011" target="_blank" rel="noopener">https://doi.org/10.1016/j.indcrop.2014.08.011</a></p>
+  <p>Small, E. (2015). Evolution and classification of <i>Cannabis sativa</i> (marijuana, hemp) in relation to human utilization. <i>The Botanical Review, 81</i>(3), 189–294. <a href="https://doi.org/10.1007/s12229-015-9157-3" target="_blank" rel="noopener">https://doi.org/10.1007/s12229-015-9157-3</a></p>
+  <p>U.S. Department of Agriculture, National Agricultural Statistics Service. (2026). <i>National hemp report</i>. <a href="https://usda.library.cornell.edu/concern/publications/gf06h2430" target="_blank" rel="noopener">https://usda.library.cornell.edu/concern/publications/gf06h2430</a></p>
+  <div style="display:flex;align-items:center;gap:30px;margin-top:auto">
+    <span class="art" data-art="seedy" style="width:140px;height:156px;display:block"></span>
+    <button class="btn" id="happyBtn" style="font-size:44px;padding:14px 40px 8px">Happy investing!</button>
+  </div>
+  <p class="pgnum">Bad Seed Botanicals · 15</p>
+  <div class="notes" hidden><p class="cue">[Hit Happy investing for the confetti finish.]</p><p>References, page two.</p></div>
+</section>
+
+</main>
+</div>
+
+<nav id="toolbar" aria-label="Presentation controls">
+  <button class="tb" id="prevBtn" aria-label="Previous slide">◀</button>
+  <span id="counter">1 / 15</span>
+  <button class="tb" id="nextBtn" aria-label="Next slide">▶</button>
+  <button class="tb" id="ovBtn" aria-pressed="false">Slides</button>
+  <button class="tb" id="notesBtn" aria-pressed="false">Notes</button>
+  <button class="tb wide" id="timer" title="Click to reset the talk timer">0:00</button>
+  <button class="tb wide" id="fsBtn">Full screen</button>
+  <button class="tb wide" id="helpBtn" aria-label="Keyboard shortcuts">?</button>
+</nav>
+
+<aside id="notes" hidden aria-label="Speaker notes">
+  <h2 id="notesTitle">Speaker notes</h2>
+  <div id="notesBody"></div>
+</aside>
+
+<div id="overview" hidden>
+  <h2>Jump to a slide</h2>
+  <div class="ov-grid" id="ovGrid"></div>
+</div>
+
+<div id="help" hidden role="dialog" aria-label="Keyboard shortcuts">
+  <h2>Shortcuts</h2>
+  <dl>
+    <dt>→ / Space</dt><dd>Next slide</dd>
+    <dt>←</dt><dd>Previous slide</dd>
+    <dt>N</dt><dd>Speaker notes</dd>
+    <dt>O</dt><dd>Slide overview</dd>
+    <dt>F</dt><dd>Full screen</dd>
+    <dt>H</dt><dd>Hide the toolbar (good for recording)</dd>
+    <dt>T</dt><dd>Reset the talk timer</dd>
+    <dt>Swipe</dt><dd>Next or previous on touch screens</dd>
+  </dl>
+  <button class="btn" id="helpClose">Got it</button>
+</div>
+
+<canvas id="confetti" aria-hidden="true"></canvas>
+<script src="app.js"></script>
+</body>
+</html>
